@@ -40,14 +40,6 @@ func (c *Client) PolicyServerAudit(server string, port int, policyName string) (
 		return nil, err
 	}
 
-	// validate policyName is in server_policy_names from ping response
-	if !contains(pingInfo.ServerPolicyNames, policyName) {
-		return nil, fmt.Errorf(
-			"Invalid policy name '%s' provided.\nValid policy names are: %v",
-			policyName, pingInfo.ServerPolicyNames,
-		)
-	}
-
 	payload := &url.Values{}
 	payload.Add("s", server)
 	payload.Add("p", strconv.Itoa(port))
@@ -67,15 +59,4 @@ func (c *Client) PolicyServerAudit(server string, port int, policyName string) (
 	}
 
 	return &policyServerAuditInfo, nil
-}
-
-// contains checks if val is present in a slice.
-func contains(slice []string, val string) bool {
-	for _, item := range slice {
-		if item == val {
-			return true
-		}
-	}
-
-	return false
 }
