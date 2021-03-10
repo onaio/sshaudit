@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"net/http/cookiejar"
 	"runtime"
+	"time"
 )
 
 // VERSION is current package version.
@@ -47,7 +48,8 @@ func NewClient(app, version string) (*Client, error) {
 
 	return &Client{
 		HTTPClient: &http.Client{
-			Jar: jar,
+			Jar:     jar,
+			Timeout: time.Second * 10,
 		},
 		BaseURL:   baseURL,
 		UserAgent: getUserAgent(app, version),
