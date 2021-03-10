@@ -1,0 +1,44 @@
+{
+    "audit_type": "policy",
+    "target_server": "example.com",
+    "target_server_ip": "93.184.216.34",
+    "policy_name": "Hardened Ubuntu Server 18.04 LTS (version 1)",
+    "passed": false,
+    "policy_errors": [
+        {
+            "actual": [
+                "curve25519-sha256@libssh.org",
+                "diffie-hellman-group-exchange-sha256"
+            ],
+            "expected_optional": [
+                ""
+            ],
+            "expected_required": [
+                "curve25519-sha256",
+                "curve25519-sha256@libssh.org",
+                "diffie-hellman-group16-sha512",
+                "diffie-hellman-group18-sha512",
+                "diffie-hellman-group-exchange-sha256"
+            ],
+            "mismatched_field": "Key exchanges"
+        },
+        {
+            "actual": [
+                "hmac-sha2-512-etm@openssh.com",
+                "hmac-sha2-256-etm@openssh.com",
+                "umac-128-etm@openssh.com",
+                "hmac-sha2-512",
+                "hmac-sha2-256"
+            ],
+            "expected_optional": [
+                ""
+            ],
+            "expected_required": [
+                "hmac-sha2-256-etm@openssh.com",
+                "hmac-sha2-512-etm@openssh.com",
+                "umac-128-etm@openssh.com"
+            ],
+            "mismatched_field": "MACs"
+        }
+    ]
+}

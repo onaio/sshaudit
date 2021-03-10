@@ -1,0 +1,134 @@
+{
+    "audit_type": "standard",
+    "banner": "SSH-2.0-OpenSSH_8.2p1",
+    "kex": [
+        {
+            "name": "curve25519-sha256@libssh.org",
+            "class": 3,
+            "score_cap": 100,
+            "score_adjust": 0
+        },
+        {
+            "name": "diffie-hellman-group-exchange-sha256 (2048-bit)",
+            "class": 1,
+            "notes": " A 3072-bit modulus is needed to provide 128 bits of security, but a 2048-bit modulus is in use. Score capped at 95."
+        }
+    ],
+    "key": [
+        {
+            "name": "ssh-ed25519",
+            "class": 3,
+            "score_cap": 100,
+            "score_adjust": 0
+        }
+    ],
+    "enc": [
+        {
+            "name": "chacha20-poly1305@openssh.com",
+            "class": 3,
+            "score_cap": 100,
+            "score_adjust": 0
+        },
+        {
+            "name": "aes256-gcm@openssh.com",
+            "class": 3,
+            "score_cap": 100,
+            "score_adjust": 0
+        },
+        {
+            "name": "aes128-gcm@openssh.com",
+            "class": 3,
+            "score_cap": 100,
+            "score_adjust": 0
+        },
+        {
+            "name": "aes256-ctr",
+            "class": 3,
+            "score_cap": 100,
+            "score_adjust": 0
+        },
+        {
+            "name": "aes192-ctr",
+            "class": 3,
+            "score_cap": 100,
+            "score_adjust": 0
+        },
+        {
+            "name": "aes128-ctr",
+            "class": 3,
+            "score_cap": 100,
+            "score_adjust": 0
+        }
+    ],
+    "mac": [
+        {
+            "name": "hmac-sha2-512-etm@openssh.com",
+            "class": 2,
+            "score_cap": 100,
+            "score_adjust": 0
+        },
+        {
+            "name": "hmac-sha2-256-etm@openssh.com",
+            "class": 2,
+            "score_cap": 100,
+            "score_adjust": 0
+        },
+        {
+            "name": "umac-128-etm@openssh.com",
+            "class": 2,
+            "score_cap": 100,
+            "score_adjust": 0
+        },
+        {
+            "name": "hmac-sha2-512",
+            "class": 1,
+            "notes": "Uses encrypt-and-MAC method. Score reduced by 1."
+        },
+        {
+            "name": "hmac-sha2-256",
+            "class": 1,
+            "notes": "Uses encrypt-and-MAC method. Score reduced by 1."
+        }
+    ],
+    "fin": [
+        "ssh-ed25519: SHA256:MUWB4GYNvHYNKc95P92ZDifK1fYg2KlmQz/NEDrAQrk"
+    ],
+    "score": 93,
+    "grade": "A",
+    "version": "1.14",
+    "target_server": "example.com",
+    "target_server_port": 22,
+    "target_server_ip": "93.184.216.34",
+    "findings": [
+        {
+            "finding_summary_title": "Encrypt-And-MAC Algorithm Enabled",
+            "finding_summary_body": "Encrypt-and-mac algorithms are theoretically weaker than encrypt-then-mac (etm) algorithms with respect to chosen plaintext attacks, chosen ciphertext attacks, and non-malleability.",
+            "finding_solution": "Disable the affected MACs.",
+            "finding_references": [
+                "Bellare, M., Namprempre, C., \"Authenticated Encryption: Relations among notions and analysis of the generic composition paradigm\", <http://cseweb.ucsd.edu/~mihir/papers/oem.pdf>, pg. 5, Published Jul. 14, 2007, Retrieved Oct. 9, 2017."
+            ],
+            "finding_affected": [
+                "hmac-sha2-512",
+                "hmac-sha2-256"
+            ]
+        }
+    ],
+    "category_summaries": {
+        "key": {
+            "good_algs": 1,
+            "total_algs": 1
+        },
+        "kex": {
+            "good_algs": 1,
+            "total_algs": 2
+        },
+        "enc": {
+            "good_algs": 6,
+            "total_algs": 6
+        },
+        "mac": {
+            "good_algs": 3,
+            "total_algs": 5
+        }
+    }
+}
