@@ -55,7 +55,7 @@ func (c *Client) PolicyServerAudit(server string, port int, policyName string) (
 	payload.Add("policy_name", policyName)
 	payload.Add("csrf_token", pingInfo.CSRFToken)
 
-	url := fmt.Sprintf("%s/server_audit", baseURL)
+	url := fmt.Sprintf("%s/server_audit", c.BaseURL)
 	req, err := http.NewRequest(http.MethodPost, url, strings.NewReader(payload.Encode()))
 	if err != nil {
 		return nil, err

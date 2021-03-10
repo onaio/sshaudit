@@ -70,7 +70,7 @@ func (c *Client) StandardServerAudit(server string, port int) (*StandardServerAu
 	payload.Add("audit_type", "standard")
 	payload.Add("csrf_token", pingInfo.CSRFToken)
 
-	url := fmt.Sprintf("%s/server_audit", baseURL)
+	url := fmt.Sprintf("%s/server_audit", c.BaseURL)
 	req, err := http.NewRequest(http.MethodPost, url, strings.NewReader(payload.Encode()))
 	if err != nil {
 		return nil, err

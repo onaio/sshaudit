@@ -59,7 +59,7 @@ func NewClient(app, version string) (*Client, error) {
 func (c *Client) ping() (*PingInfo, error) {
 	var pingInfo PingInfo
 
-	url := fmt.Sprintf("%s/ping", baseURL)
+	url := fmt.Sprintf("%s/ping", c.BaseURL)
 	req, err := http.NewRequest(http.MethodGet, url, nil)
 	if err != nil {
 		return nil, err
