@@ -12,7 +12,7 @@ import (
 )
 
 // VERSION is current package version.
-const VERSION = "0.0.1"
+const VERSION = "0.1.0"
 
 const baseURL = "https://www.sshaudit.com"
 
