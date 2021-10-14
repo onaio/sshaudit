@@ -1,3 +1,3 @@
-module github.com/evansmurithi/sshaudit
+module github.com/onaio/sshaudit
 
 go 1.14

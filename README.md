@@ -1,8 +1,8 @@
 # sshaudit
 
-![CI](https://github.com/evansmurithi/sshaudit/workflows/CI/badge.svg)
+![CI](https://github.com/onaio/sshaudit/workflows/CI/badge.svg)
 [![codecov](https://codecov.io/gh/evansmurithi/sshaudit/branch/main/graph/badge.svg?token=raBX0FtVdW)](https://codecov.io/gh/evansmurithi/sshaudit)
-[![Go Report Card](https://goreportcard.com/badge/github.com/evansmurithi/sshaudit)](https://goreportcard.com/report/github.com/evansmurithi/sshaudit)
+[![Go Report Card](https://goreportcard.com/badge/github.com/onaio/sshaudit)](https://goreportcard.com/report/github.com/onaio/sshaudit)
 
 Go package for working with https://www.sshaudit.com/
 
@@ -11,7 +11,7 @@ Go package for working with https://www.sshaudit.com/
 `sshaudit` can be installed using:
 
 ```sh
-go get github.com/evansmurithi/sshaudit
+go get github.com/onaio/sshaudit
 ```
 
 ## Basic Usage
